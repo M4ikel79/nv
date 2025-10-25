@@ -58,14 +58,17 @@ map("x", "p", '"_dP', { desc = "Paste without yanking" })
 -------------------
 
 -- NvChad already provides some, we'll add more later
-map("n", "<leader>fa", "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<cr>",
-  { desc = "Find all files" })
+map(
+  "n",
+  "<leader>fa",
+  "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<cr>",
+  { desc = "Find all files" }
+)
 map("n", "<leader>fw", "<cmd>Telescope live_grep<cr>", { desc = "Live grep" })
 map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find buffers" })
 map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "Help tags" })
 map("n", "<leader>fo", "<cmd>Telescope oldfiles<cr>", { desc = "Recent files" })
-map("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<cr>",
-  { desc = "Find in current buffer" })
+map("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { desc = "Find in current buffer" })
 map("n", "<leader>fc", "<cmd>Telescope commands<cr>", { desc = "Commands" })
 map("n", "<leader>fk", "<cmd>Telescope keymaps<cr>", { desc = "Keymaps" })
 
@@ -90,7 +93,7 @@ map("n", "<leader>gs", "<cmd>Telescope git_status<cr>", { desc = "Git status" })
 
 -- These are placeholders; actual LSP mappings set in lsp.lua on_attach
 map("n", "<leader>lf", function()
-  require("conform").format({ lsp_fallback = true })
+  require("conform").format { lsp_fallback = true }
 end, { desc = "Format buffer" })
 map("n", "<leader>li", "<cmd>LspInfo<cr>", { desc = "LSP Info" })
 map("n", "<leader>lI", "<cmd>Mason<cr>", { desc = "Mason Info" })
@@ -102,8 +105,12 @@ map("n", "<leader>lq", vim.diagnostic.setloclist, { desc = "Quickfix" })
 -- Diagnostic navigation
 -- map("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" }) -- Deprecated
 -- map("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" }) -- Deprecated
-map("n", "[d", function() vim.diagnostic.jump({ count = -1, float = true }) end, { desc = "Previous diagnostic" })
-map("n", "]d", function() vim.diagnostic.jump({ count = 1,  float = true }) end, { desc = "Next diagnostic" })
+map("n", "[d", function()
+  vim.diagnostic.jump { count = -1, float = true }
+end, { desc = "Previous diagnostic" })
+map("n", "]d", function()
+  vim.diagnostic.jump { count = 1, float = true }
+end, { desc = "Next diagnostic" })
 
 -- LSP actions (work with any LSP)
 map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
@@ -117,42 +124,72 @@ map("n", "K", vim.lsp.buf.hover, { desc = "Hover documentation" })
 -------------------
 
 -- DAP keybindings (will work once nvim-dap is installed)
-map("n", "<leader>db", function() require("dap").toggle_breakpoint() end,
-  { desc = "Toggle breakpoint" })
+map("n", "<leader>db", function()
+  require("dap").toggle_breakpoint()
+end, { desc = "Toggle breakpoint" })
 map("n", "<leader>dB", function()
-  require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+  require("dap").set_breakpoint(vim.fn.input "Breakpoint condition: ")
 end, { desc = "Conditional breakpoint" })
-map("n", "<leader>dc", function() require("dap").continue() end, { desc = "Continue" })
-map("n", "<leader>di", function() require("dap").step_into() end, { desc = "Step into" })
-map("n", "<leader>do", function() require("dap").step_over() end, { desc = "Step over" })
-map("n", "<leader>dO", function() require("dap").step_out() end, { desc = "Step out" })
-map("n", "<leader>dt", function() require("dap").terminate() end, { desc = "Terminate" })
-map("n", "<leader>dr", function() require("dap").repl.toggle() end, { desc = "Toggle REPL" })
-map("n", "<leader>dl", function() require("dap").run_last() end, { desc = "Run last" })
-map("n", "<leader>du", function() require("dapui").toggle() end, { desc = "Toggle DAP UI" })
-map("n", "<leader>de", function() require("dapui").eval() end, { desc = "Eval expression" })
-map("v", "<leader>de", function() require("dapui").eval() end, { desc = "Eval selection" })
+map("n", "<leader>dc", function()
+  require("dap").continue()
+end, { desc = "Continue" })
+map("n", "<leader>di", function()
+  require("dap").step_into()
+end, { desc = "Step into" })
+map("n", "<leader>do", function()
+  require("dap").step_over()
+end, { desc = "Step over" })
+map("n", "<leader>dO", function()
+  require("dap").step_out()
+end, { desc = "Step out" })
+map("n", "<leader>dt", function()
+  require("dap").terminate()
+end, { desc = "Terminate" })
+map("n", "<leader>dr", function()
+  require("dap").repl.toggle()
+end, { desc = "Toggle REPL" })
+map("n", "<leader>dl", function()
+  require("dap").run_last()
+end, { desc = "Run last" })
+map("n", "<leader>du", function()
+  require("dapui").toggle()
+end, { desc = "Toggle DAP UI" })
+map("n", "<leader>de", function()
+  require("dapui").eval()
+end, { desc = "Eval expression" })
+map("v", "<leader>de", function()
+  require("dapui").eval()
+end, { desc = "Eval selection" })
 
 -------------------
 -- Leader: Test - <leader>t
 -------------------
 
 -- Neotest keybindings
-map("n", "<leader>tt", function() require("neotest").run.run() end,
-  { desc = "Run nearest test" })
-map("n", "<leader>tf", function() require("neotest").run.run(vim.fn.expand("%")) end,
-  { desc = "Run file tests" })
-map("n", "<leader>ta", function() require("neotest").run.run(vim.fn.getcwd()) end,
-  { desc = "Run all tests" })
-map("n", "<leader>td", function() require("neotest").run.run({ strategy = "dap" }) end,
-  { desc = "Debug nearest test" })
-map("n", "<leader>ts", function() require("neotest").summary.toggle() end,
-  { desc = "Toggle test summary" })
-map("n", "<leader>to", function() require("neotest").output.open({ enter = true }) end,
-  { desc = "Show test output" })
-map("n", "<leader>tO", function() require("neotest").output_panel.toggle() end,
-  { desc = "Toggle output panel" })
-map("n", "<leader>tS", function() require("neotest").run.stop() end, { desc = "Stop tests" })
+map("n", "<leader>tt", function()
+  require("neotest").run.run()
+end, { desc = "Run nearest test" })
+map("n", "<leader>tf", function()
+  require("neotest").run.run(vim.fn.expand "%")
+end, { desc = "Run file tests" })
+map("n", "<leader>ta", function()
+  require("neotest").run.run(vim.fn.getcwd())
+end, { desc = "Run all tests" })
+map("n", "<leader>td", function()
+  require("neotest").run.run { strategy = "dap" }
+end, { desc = "Debug nearest test" })
+map("n", "<leader>ts", function()
+  require("neotest").summary.toggle()
+end, { desc = "Toggle test summary" })
+map("n", "<leader>to", function()
+  require("neotest").output.open { enter = true }
+end, { desc = "Show test output" })
+map("n", "<leader>tO", function()
+  require("neotest").output_panel.toggle()
+end, { desc = "Toggle output panel" })
+map("n", "<leader>tS", function()
+  require("neotest").run.stop()
+end, { desc = "Stop tests" })
 
 -------------------
 -- Leader: AI - <leader>a
@@ -188,32 +225,36 @@ map("n", "<leader>mp", "<cmd>MarkdownPreviewToggle<cr>", { desc = "Markdown prev
 -- Leader: Search/Replace - <leader>s
 -------------------
 
-map("n", "<leader>sr", function() require("spectre").open() end,
-  { desc = "Replace in files (Spectre)" })
-map("n", "<leader>sw", function() require("spectre").open_visual({ select_word = true }) end,
-  { desc = "Replace word" })
-map("n", "<leader>sf", function() require("spectre").open_file_search() end,
-  { desc = "Replace in current file" })
+map("n", "<leader>sr", function()
+  require("spectre").open()
+end, { desc = "Replace in files (Spectre)" })
+map("n", "<leader>sw", function()
+  require("spectre").open_visual { select_word = true }
+end, { desc = "Replace word" })
+map("n", "<leader>sf", function()
+  require("spectre").open_file_search()
+end, { desc = "Replace in current file" })
 
 -------------------
 -- Leader: Session - <leader>q
 -------------------
 
-map("n", "<leader>qs", function() require("persistence").load() end,
-  { desc = "Restore session" })
-map("n", "<leader>ql", function() require("persistence").load({ last = true }) end,
-  { desc = "Restore last session" })
-map("n", "<leader>qd", function() require("persistence").stop() end,
-  { desc = "Don't save session" })
+map("n", "<leader>qs", function()
+  require("persistence").load()
+end, { desc = "Restore session" })
+map("n", "<leader>ql", function()
+  require("persistence").load { last = true }
+end, { desc = "Restore last session" })
+map("n", "<leader>qd", function()
+  require("persistence").stop()
+end, { desc = "Don't save session" })
 
 -------------------
 -- Leader: UI - <leader>x
 -------------------
 
-map("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>",
-  { desc = "Diagnostics (Trouble)" })
-map("n", "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-  { desc = "Buffer diagnostics" })
+map("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Diagnostics (Trouble)" })
+map("n", "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Buffer diagnostics" })
 map("n", "<leader>xq", "<cmd>Trouble quickfix toggle<cr>", { desc = "Quickfix list" })
 map("n", "<leader>z", "<cmd>ZenMode<cr>", { desc = "Zen mode" })
 
@@ -221,11 +262,15 @@ map("n", "<leader>z", "<cmd>ZenMode<cr>", { desc = "Zen mode" })
 -- Leader: Window - <leader>w
 -------------------
 
+map("n", "<leader>|", "<C-w>v", { desc = "Split vertical" })
 map("n", "<leader>\\", "<C-w>v", { desc = "Split vertical" })
 map("n", "<leader>-", "<C-w>s", { desc = "Split horizontal" })
 map("n", "<leader>wq", "<C-w>q", { desc = "Close window" })
 map("n", "<leader>wo", "<C-w>o", { desc = "Close other windows" })
 map("n", "<leader>w=", "<C-w>=", { desc = "Equal window size" })
+map("n", "<leader>wv", "<C-w>t<C-w>H", { desc = "Move split to vertical" })
+map("n", "<leader>wh", "<C-w>t<C-w>K", { desc = "Move split to horizontal" })
+map("n", "<leader>wr", "<C-w>r", { desc = "Rotate windows" })
 
 -------------------
 -- Terminal
