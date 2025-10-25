@@ -16,13 +16,19 @@ return {
   -- test new blink
   { import = "nvchad.blink.lazyspec" },
 
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
+  {
+  	"nvim-treesitter/nvim-treesitter",
+  	opts = {
+  		ensure_installed = {
+  			"vim", "lua", "vimdoc",
+       "html", "css"
+  		},
+  	},
+  },
+{
+    'NeViRAIDE/nekifoch.nvim',
+    build = 'chmod +x ./install.sh && ./install.sh',
+    cmd = 'Nekifoch',
+    config = true,
+}
 }
