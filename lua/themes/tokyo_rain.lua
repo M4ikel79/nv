@@ -1,4 +1,4 @@
--- Tokyo Rain Theme - Neon-lit rainy night in Tokyo
+-- tokyo_rain Theme
 -- NvChad theme implementation
 local M = {}
 

@@ -1,4 +1,4 @@
--- Cyberpunk Neon Theme - Bright neon cyberpunk colors
+-- cyberpunk_neon Theme
 -- NvChad theme implementation
 local M = {}
 

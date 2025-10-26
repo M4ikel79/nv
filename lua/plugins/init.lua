@@ -13,6 +13,12 @@ return {
     end,
   },
 
+  {
+    "notken12/base46-colors",
+    lazy = false,
+    priority = 1000,
+  },
+
   -- test new blink
   { import = "nvchad.blink.lazyspec" },
 

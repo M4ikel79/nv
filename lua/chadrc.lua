@@ -1,6 +1,6 @@
 local options = {
   base46 = {
-    theme = "tokyodark",
+    theme = "blossom_light",
     hl_add = {},
     hl_override = {
       Comment = { italic = true },
@@ -9,9 +9,9 @@ local options = {
       CursorLineNr = { bold = true },
     },
     integrations = {},
-    changed_themes = {},
-    transparency = false,
-    theme_toggle = { "catppuccin", "tokyodark" },
+    changed_themes = require "modules.themes",
+    transparency = true,
+    theme_toggle = { "blossom_light", "tokyodark" },
   },
 
   ui = {
@@ -29,22 +29,7 @@ local options = {
       separator_style = "default",
       order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "vm_status", "diagnostics", "lsp", "cwd", "cursor" },
       modules = {
-        vm_status = function()
-          -- Check if VM is active
-              if vim.b.visual_multi then
-                local vm_info = vim.fn['VMInfos']()
-                if vm_info and vm_info.ratio then
-                  vim.api.nvim_set_hl(0, "multi", { fg = "#ff4155" ,bold = true })
-                  vim.api.nvim_set_hl(0, "multiText", { fg = "#ffcfcc" })
-
-                  local mode_icon = "%#multi# %*"
-                  local ratio_text = "%#multiText#" .. vm_info.ratio .. "%*"
-
-                  return "%#StText# " .. mode_icon .. " " .. ratio_text .. " "
-                end
-              end
-          return ""
-        end,
+        vm_status = require("lua.modules.vm").vm_status,
       },
     },
 
@@ -115,15 +100,9 @@ local options = {
 
   colorify = {
     enabled = true,
-    mode = "virtual",
+    mode = "virtual", -- fg, bg, virtual
     virt_text = "󱓻 ",
-    highlight = {
-      hex = true,
-      rgb = true,
-      hsl = true,
-      names = true,
-      lspvars = true,
-    },
+    highlight = { hex = true, lspvars = true },
   },
 }
 

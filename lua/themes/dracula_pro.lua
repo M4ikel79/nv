@@ -1,76 +1,76 @@
--- Credits to original Dracula Pro theme
--- Base46 implementation for NvChad
+-- dracula_pro Theme
+-- NvChad theme implementation
 local M = {}
 
 M.base_30 = {
-  white = "#F8F8F2", -- Main foreground
-  darker_black = "#191A21", -- Background darker
-  black = "#282A36", -- Main background
-  black2 = "#21222C", -- ANSI black
-  one_bg = "#343746", -- Background light
-  one_bg2 = "#424450", -- Background lighter
-  one_bg3 = "#44475A", -- Selection background
-  grey = "#6272A4", -- Comments/current line
-  grey_fg = "#6272A4", -- Comments
-  grey_fg2 = "#7080B0", -- Lighter comments
-  light_grey = "#8090C0", -- Even lighter
-  red = "#FF5555", -- Errors, warnings, deletion
-  baby_pink = "#FF6E6E", -- ANSI bright red
-  pink = "#FF79C6", -- Keywords, storage types
-  line = "#343746", -- For lines like vertsplit
-  green = "#50FA7B", -- Strings, inherited classes
-  vibrant_green = "#69FF94", -- ANSI bright green
-  nord_blue = "#BD93F9", -- Classes, types, variables (purple)
-  blue = "#BD93F9", -- Same as purple in Dracula
-  yellow = "#F1FA8C", -- Functions, methods
-  sun = "#FFFFA5", -- ANSI bright yellow
-  purple = "#BD93F9", -- Classes, types, variables
-  dark_purple = "#D6ACFF", -- ANSI bright blue/purple
-  teal = "#8BE9FD", -- Support functions, regex (cyan)
-  orange = "#FFB86C", -- Numbers, constants, booleans
-  cyan = "#8BE9FD", -- Support functions, regex
-  statusline_bg = "#343746", -- Status bar background
-  lightbg = "#44475A", -- Light bg for UI elements
-  pmenu_bg = "#BD93F9", -- Popup menu accent (purple)
-  folder_bg = "#8BE9FD", -- Folder/directory color (cyan)
+  white = "#F8F8F2",
+  darker_black = "#191A21",
+  black = "#282A36",
+  black2 = "#21222C",
+  one_bg = "#343746",
+  one_bg2 = "#424450",
+  one_bg3 = "#44475A",
+  grey = "#6272A4",
+  grey_fg = "#6272A4",
+  grey_fg2 = "#7080B0",
+  light_grey = "#8090C0",
+  red = "#FF5555",
+  baby_pink = "#FF6E6E",
+  pink = "#FF79C6",
+  line = "#343746",
+  green = "#50FA7B",
+  vibrant_green = "#69FF94",
+  nord_blue = "#BD93F9",
+  blue = "#BD93F9",
+  yellow = "#F1FA8C",
+  sun = "#FFFFA5",
+  purple = "#BD93F9",
+  dark_purple = "#D6ACFF",
+  teal = "#8BE9FD",
+  orange = "#FFB86C",
+  cyan = "#8BE9FD",
+  statusline_bg = "#343746",
+  lightbg = "#44475A",
+  pmenu_bg = "#BD93F9",
+  folder_bg = "#8BE9FD",
 }
 
 M.base_16 = {
-  base00 = "#282A36", -- Default Background
-  base01 = "#343746", -- Lighter Background (status bars, line numbers)
-  base02 = "#44475A", -- Selection Background
-  base03 = "#6272A4", -- Comments, Invisibles, Line Highlighting
-  base04 = "#7080B0", -- Dark Foreground (status bars)
-  base05 = "#F8F8F2", -- Default Foreground, Caret, Delimiters, Operators
-  base06 = "#F8F8F2", -- Light Foreground
-  base07 = "#FFFFFF", -- Light Background
-  base08 = "#FF5555", -- Variables, XML Tags, Markup Link Text, Diff Deleted (red)
-  base09 = "#FFB86C", -- Integers, Boolean, Constants, XML Attributes (orange)
-  base0A = "#F1FA8C", -- Classes, Markup Bold, Search Text Background (yellow)
-  base0B = "#50FA7B", -- Strings, Inherited Class, Markup Code, Diff Inserted (green)
-  base0C = "#8BE9FD", -- Support, Regular Expressions, Escape Characters (cyan)
-  base0D = "#8BE9FD", -- Functions, Methods, Attribute IDs, Headings (cyan)
-  base0E = "#BD93F9", -- Keywords, Storage, Selector, Markup Italic (purple)
-  base0F = "#FF79C6", -- Deprecated, Opening/Closing Embedded Language Tags (pink)
+  base00 = "#282A36",
+  base01 = "#343746",
+  base02 = "#44475A",
+  base03 = "#6272A4",
+  base04 = "#7080B0",
+  base05 = "#F8F8F2",
+  base06 = "#F8F8F2",
+  base07 = "#FFFFFF",
+  base08 = "#FF5555",
+  base09 = "#FFB86C",
+  base0A = "#F1FA8C",
+  base0B = "#50FA7B",
+  base0C = "#8BE9FD",
+  base0D = "#8BE9FD",
+  base0E = "#BD93F9",
+  base0F = "#FF79C6",
 }
 
 M.polish_hl = {
   treesitter = {
-    ["@variable"] = { fg = M.base_16.base05 }, -- Foreground (white)
-    ["@punctuation.bracket"] = { fg = M.base_30.white }, -- White brackets
-    ["@function.method.call"] = { fg = M.base_30.yellow }, -- Yellow functions
-    ["@function.call"] = { fg = M.base_30.yellow }, -- Yellow functions
-    ["@constant"] = { fg = M.base_30.orange }, -- Orange constants
-    ["@variable.parameter"] = { fg = M.base_30.orange }, -- Orange parameters
-    ["@keyword"] = { fg = M.base_30.pink }, -- Pink keywords
-    ["@string"] = { fg = M.base_30.green }, -- Green strings
-    ["@number"] = { fg = M.base_30.orange }, -- Orange numbers
-    ["@boolean"] = { fg = M.base_30.orange }, -- Orange booleans
-    ["@operator"] = { fg = M.base_30.pink }, -- Pink operators
-    ["@comment"] = { fg = M.base_30.grey, italic = true }, -- Grey comments
-    ["@type"] = { fg = M.base_30.purple }, -- Purple types
-    ["@type.builtin"] = { fg = M.base_30.purple }, -- Purple built-in types
-    ["@constructor"] = { fg = M.base_30.purple }, -- Purple constructors
+    ["@variable"] = { fg = M.base_16.base05 },
+    ["@punctuation.bracket"] = { fg = M.base_30.white },
+    ["@function.method.call"] = { fg = M.base_30.yellow },
+    ["@function.call"] = { fg = M.base_30.yellow },
+    ["@constant"] = { fg = M.base_30.orange },
+    ["@variable.parameter"] = { fg = M.base_30.orange },
+    ["@keyword"] = { fg = M.base_30.pink },
+    ["@string"] = { fg = M.base_30.green },
+    ["@number"] = { fg = M.base_30.orange },
+    ["@boolean"] = { fg = M.base_30.orange },
+    ["@operator"] = { fg = M.base_30.pink },
+    ["@comment"] = { fg = M.base_30.grey, italic = true },
+    ["@type"] = { fg = M.base_30.purple },
+    ["@type.builtin"] = { fg = M.base_30.purple },
+    ["@constructor"] = { fg = M.base_30.purple },
   },
 }
 

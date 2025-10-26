@@ -1,4 +1,4 @@
--- Pastel Dream Theme - Soft pastel colors light theme
+-- pastel_dream Theme
 -- NvChad theme implementation
 local M = {}
 

@@ -1,4 +1,4 @@
--- Aurora Theme - Pink/Purple/Cyan Aurora Borealis inspired
+-- aurora Theme
 -- NvChad theme implementation
 local M = {}
 

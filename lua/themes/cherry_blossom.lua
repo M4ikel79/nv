@@ -1,4 +1,4 @@
--- Cherry Blossom Theme - Japanese sakura inspired light theme
+-- cherry_blossom Theme
 -- NvChad theme implementation
 local M = {}
 

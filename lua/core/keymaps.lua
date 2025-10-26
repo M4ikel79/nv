@@ -11,6 +11,7 @@ local map = vim.keymap.set
 -- Your existing mappings
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>", { desc = "Exit insert mode" })
+map("i", "kj", "<ESC>", { desc = "Exit insert mode" })
 map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>", { desc = "Save file" })
 
 -- Clear search highlights
@@ -282,6 +283,13 @@ map("t", "<C-h>", "<C-\\><C-n><C-w>h", { desc = "Window left (terminal)" })
 map("t", "<C-j>", "<C-\\><C-n><C-w>j", { desc = "Window down (terminal)" })
 map("t", "<C-k>", "<C-\\><C-n><C-w>k", { desc = "Window up (terminal)" })
 map("t", "<C-l>", "<C-\\><C-n><C-w>l", { desc = "Window right (terminal)" })
+map("t", "jk", "<C-\\><C-n>", { desc = "Exit terminal mode (jk)" })
+map("t", "kj", "<C-\\><C-n>", { desc = "Exit terminal mode (kj)" })
+------------------
+-- Others
+------------------
+-- Themes
+require "modules.theme-keymaps"
 
 -------------------
 -- Quick Notes

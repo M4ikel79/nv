@@ -1,4 +1,4 @@
--- Ocean Depths Theme - Deep blue/teal ocean inspired
+-- ocean_depths Theme
 -- NvChad theme implementation
 local M = {}
 

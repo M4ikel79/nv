@@ -1,4 +1,4 @@
--- Volcanic Ash Theme - Red/orange volcanic colors
+-- volcanic_ash Theme
 -- NvChad theme implementation
 local M = {}
 
