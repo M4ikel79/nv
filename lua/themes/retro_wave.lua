@@ -1,4 +1,4 @@
--- Retro Wave Theme - 80s synthwave style
+-- retro_wave Theme
 -- NvChad theme implementation
 local M = {}
 

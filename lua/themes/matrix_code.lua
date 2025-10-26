@@ -1,4 +1,4 @@
--- Matrix Code Theme - Green terminal matrix style
+-- matrix_code Theme
 -- NvChad theme implementation
 local M = {}
 
