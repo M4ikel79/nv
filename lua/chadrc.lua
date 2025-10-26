@@ -10,7 +10,7 @@ local options = {
     },
     integrations = {},
     changed_themes = require "modules.themes",
-    transparency = true,
+    transparency = false,
     theme_toggle = { "blossom_light", "tokyodark" },
   },
 

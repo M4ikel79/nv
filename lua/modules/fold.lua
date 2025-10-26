@@ -83,7 +83,15 @@ end
 
 function M.statuscol()
   local winid = vim.g.statusline_winid
-  local bufnr = vim.api.nvim_win_get_buf(winid)
+  if not winid or winid == 0 then
+    return "%l   "
+  end
+  
+  local ok, bufnr = pcall(vim.api.nvim_win_get_buf, winid)
+  if not ok then
+    return "%l   "
+  end
+  
   local lnum = vim.v.lnum
 
   local fold_map = fold_ranges_map[bufnr]
