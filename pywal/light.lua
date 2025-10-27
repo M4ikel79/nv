@@ -1,9 +1,8 @@
-local M = { {} }
+local M = {{}}
 
 local lighten = require("base46.colors").change_hex_lightness
 
-M.base_30 = {
-  {
+M.base_30 = {{
     white = "{color7}",
     darker_black = lighten("{color0}", -3),
     black = "{color0}",
@@ -28,8 +27,7 @@ M.base_30 = {
     cyan = "{color4}",
     pmenu_bg = "{color8}",
     folder_bg = "{color4}",
-  },
-}
+}}
 
 M.base_30.statusline_bg = M.base_30.black2
 M.base_30.lightbg = M.base_30.one_bg
@@ -38,8 +36,7 @@ M.base_30.one_bg3 = lighten(M.base_30.one_bg2, -6)
 M.base_30.grey_fg = lighten(M.base_30.grey, -10)
 M.base_30.grey_fg2 = lighten(M.base_30.grey, -5)
 
-M.base_16 = {
-  {
+M.base_16 = {{
     base00 = "{color0}",
     base01 = "{color0}",
     base02 = "{color8}",
@@ -56,21 +53,18 @@ M.base_16 = {
     base0D = "{color6}",
     base0E = "{color1}",
     base0F = "{color15}",
-  },
-}
+}}
 
 M.type = "dark"
 
-M.polish_hl = {
-  {
-    Operator = { {
+M.polish_hl = {{
+    Operator = {{
       fg = M.base_30.nord_blue,
-    } },
+    }},
 
-    ["@operator"] = { {
+    ["@operator"] = {{
       fg = M.base_30.nord_blue,
-    } },
-  },
-}
+    }},
+}}
 
 return M
