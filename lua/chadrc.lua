@@ -112,5 +112,4 @@ local options = {
   },
 }
 
-local status, chadrc = pcall(require, "custom.chadrc")
-return vim.tbl_deep_extend("force", options, status and chadrc or {})
+return options
