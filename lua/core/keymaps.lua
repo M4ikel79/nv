@@ -36,6 +36,7 @@ for i = 1, 9, 1 do
   end)
 end
 map("n", "<leader>x", ":bdelete<CR>", { desc = "Close buffer" })
+map("n", "<A-c>", ":bdelete<CR>", { desc = "Close buffer" })
 
 -- Better indenting
 map("v", "<", "<gv", { desc = "Indent left" })

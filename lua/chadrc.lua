@@ -1,6 +1,6 @@
 local options = {
   base46 = {
-    theme = "blossom_light",
+    theme = "tokyodark",
     hl_add = {},
     hl_override = {
       Comment = { italic = true },
@@ -11,7 +11,7 @@ local options = {
     integrations = {},
     changed_themes = require "modules.themes",
     transparency = false,
-    theme_toggle = { "blossom_light", "tokyodark" },
+    theme_toggle = { "nano-light", "tokyodark" },
   },
 
   ui = {
@@ -19,7 +19,10 @@ local options = {
       icons_left = false,
       style = "flat_dark",
       abbr_maxwidth = 60,
-      format_colors = { lsp = true, icon = "󱓻" },
+      format_colors = {
+        lsp = true,
+        icon = "󱓻",
+      },
     },
 
     telescope = { style = "borderless" },
@@ -102,7 +105,10 @@ local options = {
     enabled = true,
     mode = "virtual", -- fg, bg, virtual
     virt_text = "󱓻 ",
-    highlight = { hex = true, lspvars = true },
+    highlight = {
+      hex = true,
+      lspvars = true,
+    },
   },
 }
 
