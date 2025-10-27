@@ -35,3 +35,15 @@ require "core.autocmds"
 vim.schedule(function()
   require "core.keymaps"
 end)
+
+-- Start pywal daemon
+os.execute("python ~/.config/nvim/pywal/chadwal.py &> /dev/null &")
+
+-- Listen for SIGUSR1 signals to reload theme
+local autocmd = vim.api.nvim_create_autocmd
+autocmd("Signal", {
+  pattern = "SIGUSR1",
+  callback = function()
+    require('nvchad.utils').reload()
+  end
+})
