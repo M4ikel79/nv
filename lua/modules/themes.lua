@@ -4,6 +4,7 @@ local M = {}
 -- All available themes collection (84 unique themes)
 M.all_themes = {
   -- Your Custom Themes
+  "chadwal",  -- Pywal dynamic theme
   "aurora",
   "cherry_blossom",
   "cyberpunk_neon",
@@ -85,6 +86,7 @@ M.all_themes = {
 
 -- Curated favorites for quick toggling
 M.favorites = {
+  "chadwal",
   "onedark",
   "gruvchad",
   "catppuccin",

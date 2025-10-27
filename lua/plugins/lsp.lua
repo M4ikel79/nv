@@ -178,18 +178,21 @@ return {
 
           -- Highlight references on cursor hold
           if client and client.server_capabilities.documentHighlightProvider then
-            local group = vim.api.nvim_create_augroup("lsp_document_highlight", { clear = false })
-            vim.api.nvim_clear_autocmds { buffer = bufnr, group = group }
-            vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-              group = group,
-              buffer = bufnr,
-              callback = vim.lsp.buf.document_highlight,
-            })
-            vim.api.nvim_create_autocmd("CursorMoved", {
-              group = group,
-              buffer = bufnr,
-              callback = vim.lsp.buf.clear_references,
-            })
+            local filetype = vim.bo[bufnr].filetype
+            if filetype ~= "markdown" then -- Add this check
+              local group = vim.api.nvim_create_augroup("lsp_document_highlight", { clear = false })
+              vim.api.nvim_clear_autocmds { buffer = bufnr, group = group }
+              vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+                group = group,
+                buffer = bufnr,
+                callback = vim.lsp.buf.document_highlight,
+              })
+              vim.api.nvim_create_autocmd("CursorMoved", {
+                group = group,
+                buffer = bufnr,
+                callback = vim.lsp.buf.clear_references,
+              })
+            end
           end
         end,
       })
@@ -314,8 +317,9 @@ return {
             cargo = {
               allFeatures = true,
             },
-            checkOnSave = {
-              command = "clippy",
+            checkOnSave = true, -- Change this to boolean
+            check = {
+              command = "clippy", -- Move clippy here
             },
           },
         },

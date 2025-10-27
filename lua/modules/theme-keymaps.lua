@@ -52,6 +52,10 @@ map("n", "<leader>t5", function()
   picker.set_theme "onedark"
 end, { desc = "Theme: Onedark" })
 
+map("n", "<leader>tp", function()
+  picker.set_theme "chadwal"
+end, { desc = "Theme: Pywal (chadwal)" })
+
 -- ============================================================================
 -- NAVIGATION - Cycle through theme lists
 -- ============================================================================
