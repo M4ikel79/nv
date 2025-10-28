@@ -1,6 +1,6 @@
 local options = {
   base46 = {
-    theme = "chadwal",
+    theme = "tokyodark",
     hl_add = {},
     hl_override = {
       Comment = { italic = true },
@@ -10,8 +10,8 @@ local options = {
     },
     integrations = {},
     changed_themes = require "modules.themes",
-    transparency = true,
-    theme_toggle = { "nano-light", "chadwal" },
+    transparency = false,
+    theme_toggle = { "nano-light", "tokyodark" },
   },
 
   ui = {
