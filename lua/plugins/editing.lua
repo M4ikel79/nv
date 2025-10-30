@@ -4,7 +4,7 @@ return {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
     config = function()
-      require("nvim-autopairs").setup({
+      require("nvim-autopairs").setup {
         check_ts = true, -- Use treesitter
         ts_config = {
           lua = { "string" }, -- Don't add pairs in lua string treesitter nodes
@@ -22,7 +22,7 @@ return {
           highlight = "Search",
           highlight_grey = "Comment",
         },
-      })
+      }
     end,
   },
 
@@ -38,7 +38,7 @@ return {
       { "gb", mode = "x", desc = "Comment toggle blockwise (visual)" },
     },
     config = function()
-      require("Comment").setup({
+      require("Comment").setup {
         padding = true,
         sticky = true,
         ignore = nil,
@@ -61,7 +61,7 @@ return {
         },
         pre_hook = nil,
         post_hook = nil,
-      })
+      }
     end,
   },
 
@@ -71,7 +71,7 @@ return {
     version = "*",
     event = "VeryLazy",
     config = function()
-      require("nvim-surround").setup({
+      require("nvim-surround").setup {
         keymaps = {
           insert = "<C-g>s",
           insert_line = "<C-g>S",
@@ -85,7 +85,7 @@ return {
           change = "cs",
           change_line = "cS",
         },
-      })
+      }
     end,
   },
 
@@ -95,7 +95,7 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     event = "BufReadPost",
     config = function()
-      require("todo-comments").setup({
+      require("todo-comments").setup {
         signs = true,
         sign_priority = 8,
         keywords = {
@@ -147,7 +147,7 @@ return {
           },
           pattern = [[\b(KEYWORDS):]],
         },
-      })
+      }
     end,
   },
 
@@ -166,10 +166,10 @@ return {
 
       -- Basic settings
       vim.g.VM_mouse_mappings = 0
-      vim.g.VM_theme = "iceblue"
+      vim.g.VM_theme = "spacegrey"
       vim.g.VM_highlight_matches = "underline"
 
-      -- Disable VM's built-in statusline (use NvChad's instead)
+      -- Disable VM's built-in statusline
       vim.g.VM_set_statusline = 0
       vim.g.VM_silent_exit = 1
 
@@ -180,6 +180,23 @@ return {
         ["Add Cursor Down"] = "<C-->",
         ["Add Cursor Up"] = "<C-=>",
       }
+
+      -- Set buffer variable when VM starts/exits
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "visual_multi_start",
+        callback = function()
+          vim.b.visual_multi = true
+          vim.cmd.redrawstatus()
+        end,
+      })
+
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "visual_multi_exit",
+        callback = function()
+          vim.b.visual_multi = false
+          vim.cmd.redrawstatus()
+        end,
+      })
     end,
   },
 
@@ -199,7 +216,7 @@ return {
       {
         "<leader>sw",
         function()
-          require("spectre").open_visual({ select_word = true })
+          require("spectre").open_visual { select_word = true }
         end,
         desc = "Replace word under cursor",
       },
@@ -212,7 +229,7 @@ return {
       },
     },
     config = function()
-      require("spectre").setup({
+      require("spectre").setup {
         color_devicons = true,
         open_cmd = "vnew",
         live_update = false,
@@ -307,7 +324,7 @@ return {
             cmd = "sed",
           },
         },
-      })
+      }
     end,
   },
 }

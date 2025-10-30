@@ -10,6 +10,10 @@ o.showmode = false
 o.cmdheight = 1
 o.termguicolors = true
 o.shell = "/bin/bash"
+-- o.shellcmdflag = "--rcfile " .. vim.fn.stdpath "config" .. "/lua/bash/.bashrc -c"
+-- o.shell = "/bin/bash"
+-- o.shellcmdflag = "-c"
+-- vim.env.BASH_ENV = vim.fn.stdpath "config" .. "/lua/bash/.bashrc"
 
 o.pumheight = 10
 o.pumblend = 10
@@ -21,7 +25,7 @@ o.sidescrolloff = 8
 o.wrap = false
 -- o.linebreak = true
 -- o.breakindent = true
-o.colorcolumn = "100"
+-- o.colorcolumn = "100"
 o.showmatch = false
 
 o.numberwidth = 2

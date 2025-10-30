@@ -1,3 +1,5 @@
 lazy-lock.json
 .tree.txt
+.gitignore
 ignore
+lua/bash/

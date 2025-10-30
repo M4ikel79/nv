@@ -1,6 +1,6 @@
 local options = {
   base46 = {
-    theme = "tokyodark",
+    theme = "tokyonight",
     hl_add = {},
     hl_override = {
       Comment = { italic = true },
@@ -8,10 +8,10 @@ local options = {
       LineNr = { bold = true },
       CursorLineNr = { bold = true },
     },
-    integrations = {},
+    integrations = { "trouble" },
     changed_themes = require "modules.themes",
     transparency = false,
-    theme_toggle = { "nano-light", "tokyodark" },
+    theme_toggle = { "nano-light", "tokyonight" },
   },
 
   ui = {
@@ -30,9 +30,21 @@ local options = {
     statusline = {
       theme = "default",
       separator_style = "default",
-      order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "vm_status", "diagnostics", "lsp", "cwd", "cursor" },
+      order = {
+        "mode",
+        "file",
+        "git",
+        "%=",
+        "lsp_msg",
+        "%=",
+        "vc_status",
+        "diagnostics",
+        "lsp",
+        "cwd",
+        "cursor",
+      },
       modules = {
-        vm_status = require("lua.modules.vm").vm_status,
+        vc_status = require("modules.vc").vc_status,
       },
     },
 
