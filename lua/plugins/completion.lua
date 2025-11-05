@@ -100,22 +100,7 @@ return {
         name = "snippets",
         module = "blink.cmp.sources.snippets",
         score_offset = 3,
-        opts = {
-          friendly_snippets = true,
-          search_paths = { vim.fn.stdpath "config" .. "/snippets" },
-          -- Extended filetypes for framework-specific snippets
-          -- See: https://github.com/rafamadriz/friendly-snippets/tree/main/snippets/frameworks
-          use_friendly_snippets = true,
-          extended_filetypes = {
-            -- Examples (uncomment and customize as needed):
-            -- typescript = { "tsdoc" },
-            -- javascript = { "jsdoc" },
-            lua = { "luadoc" },
-            -- python = { "pydoc" },
-            -- rust = { "rustdoc" },
-            -- go = { "godoc" },
-          },
-        },
+        opts = {},
       }
 
       -- Completion menu appearance

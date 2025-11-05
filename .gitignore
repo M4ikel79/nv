@@ -3,3 +3,5 @@ lazy-lock.json
 .gitignore
 ignore
 lua/bash/
+lua/plugins/dap.lua.bak
+REPO_PROGRESS.md

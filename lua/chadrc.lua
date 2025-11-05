@@ -1,6 +1,6 @@
 local options = {
   base46 = {
-    theme = "tokyonight",
+    theme = "catppuccin",
     hl_add = {},
     hl_override = {
       Comment = { italic = true },
@@ -11,7 +11,7 @@ local options = {
     integrations = { "trouble" },
     changed_themes = require "modules.themes",
     transparency = false,
-    theme_toggle = { "nano-light", "tokyonight" },
+    theme_toggle = { "nano-light", "catppuccin" },
   },
 
   ui = {
