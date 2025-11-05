@@ -31,6 +31,25 @@ autocmd("TextYankPost", {
   end,
 })
 
+-- Show colorcolumn
+autocmd({ "VimResized", "WinEnter", "BufWinEnter" }, {
+  callback = function()
+    -- Don't show colorcolumn on nvdash
+    local filetype = vim.bo.filetype
+    if filetype == "nvdash" then
+      vim.wo.colorcolumn = ""
+      return
+    end
+
+    local width = vim.api.nvim_win_get_width(0)
+    if width > vim.o.columns / 2 then
+      vim.wo.colorcolumn = tostring(math.floor(width / 2))
+    else
+      vim.wo.colorcolumn = ""
+    end
+  end,
+})
+
 -- Show nvdash when all buffers are closed
 autocmd("BufDelete", {
   callback = function()

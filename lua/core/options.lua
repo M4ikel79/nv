@@ -91,7 +91,7 @@ opt.guicursor = {
 }
 
 -- Folding Configuration
-o.foldmethod = "expr"
+o.foldmethod = "manual"
 o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 o.foldlevel = 99
 o.foldlevelstart = 99

@@ -418,18 +418,7 @@ return {
 
       require("dap-python").setup "python3"
 
-      -- Python test keybindings
-      vim.keymap.set("n", "<leader>dPt", function()
-        require("dap-python").test_method()
-      end, { desc = "Debug Python Test Method" })
-
-      vim.keymap.set("n", "<leader>dPc", function()
-        require("dap-python").test_class()
-      end, { desc = "Debug Python Test Class" })
-
-      vim.keymap.set("v", "<leader>dPs", function()
-        require("dap-python").debug_selection()
-      end, { desc = "Debug Python Selection" })
+      -- Python test keybindings (removed to avoid conflict with neotest)
     end,
   },
 
